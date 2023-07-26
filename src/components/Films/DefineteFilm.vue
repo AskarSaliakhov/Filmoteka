@@ -117,17 +117,17 @@
                         :key="review.id"
                         :all-reviews="review"
                         :class="{
-                            good__review:review.characteristic==='good',
-                            bad__review:review.characteristic==='bad',
-                            general__review:review.characteristic!=='good'&& review.characteristic!=='bad'
+                            good__review:review.characteristic==='Положительная',
+                            bad__review:review.characteristic==='Отрицательная',
+                            general__review:review.characteristic!=='Положительная'&& review.characteristic!=='Отрицательная'
                         }"
                     />
                 </div>
                 <div class="make__review">
-                    <select>
+                    <select v-on:change="badReview">
                         <option hidden>Выберите оценку</option>
-                        <option @click="badReview">Отрицательная</option>
-                        <option @click="goodReview">Положительная</option>
+                        <option>Положительная</option>
+                        <option>Отрицательная</option>
                     </select>
                     <textarea placeholder="Написать рецензию" v-model="reviewText"></textarea>
                     <button id="btn--make--review" @click="publicReview">Опубликовать рецензию</button>
@@ -192,12 +192,11 @@ export default {
                 this.$router.push("/registration")
             }
         },
-        badReview() {
-            this.reviewType = "bad"
-
+        badReview(event) {
+            this.reviewType = event.target.value
         },
-        goodReview() {
-            this.reviewType = "good"
+        goodReview(event) {
+            this.reviewType = event.target.value
         }
     },
     computed: {
@@ -220,11 +219,11 @@ export default {
     },
     updated() {
         let allReviews = document.querySelectorAll(".review")
-        let lastReview = Array.prototype.slice.call(allReviews)[Array.prototype.slice.call(allReviews).length - 1]
-        if (this.reviewType === "good") {
+        let lastReview = Array.prototype.slice.call(allReviews)[Array.prototype.slice.call(allReviews).length-1]
+        if (this.reviewType === "Положительная") {
             lastReview.classList.add('good__review','Review')
         }
-        if (this.reviewType === "bad") {
+        if (this.reviewType === "Отрицательная") {
             lastReview.classList.add('bad__review','qq')
         }
     },

@@ -1,11 +1,10 @@
 <template>
     <div class="Year">
-        <select>
+        <select v-on:change="selectYear">
             <option @click="allYears">Все годы</option>
             <option
                 v-for="film in years"
                 :key="film.id"
-                @click="selectYear(film)"
             >
                 {{film.year}}
             </option>
@@ -32,8 +31,8 @@ export default {
         }
     },
     methods:{
-        selectYear(film) {
-            this.$emit("takeYear",film.year)
+        selectYear(event) {
+            this.$emit("takeYear",event.target.value)
         },
         allYears() {
             this.$emit("takeAllYears")

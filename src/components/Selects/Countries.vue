@@ -1,11 +1,10 @@
 <template>
     <div class="Country">
-        <select>
+        <select v-on:change="selectCountry">
             <option @click="allCountries">Все страны</option>
             <option
                 v-for="film in countries"
                 :key="film.id"
-                @click="selectCountry(film)"
             >
                 {{ film.country }}
             </option>
@@ -34,8 +33,8 @@ export default {
         }
     },
     methods: {
-        selectCountry(film) {
-            this.$emit("takeCountry", film.country)
+        selectCountry(event) {
+            this.$emit("takeCountry", event.target.value)
         },
         allCountries() {
             this.$emit("takeAllCountries")

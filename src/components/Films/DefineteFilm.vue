@@ -124,13 +124,15 @@
                     />
                 </div>
                 <div class="make__review">
-                    <select v-on:change="badReview">
-                        <option hidden>Выберите оценку</option>
-                        <option>Положительная</option>
-                        <option>Отрицательная</option>
-                    </select>
+                    <div v-if="isShowTypeRewiews">
+                        <input type="radio"   @click="goodReview" v-model="reviewType">
+                        <label for="one">Положительная</label>
+                        <br>
+                        <input type="radio" @click="badReview" v-model="reviewType">
+                        <label for="two"  >Отрицательная</label>
+                    </div>
                     <textarea placeholder="Написать рецензию" v-model="reviewText"></textarea>
-                    <button id="btn--make--review" @click="publicReview">Опубликовать рецензию</button>
+                    <button id="btn--make--review" @click="chooseReview">Опубликовать рецензию</button>
                 </div>
             </div>
         </div>
@@ -154,6 +156,7 @@ export default {
             currentRating: "",
             reviewText: "",
             reviewType: "",
+            isShowTypeRewiews:false
         }
     },
     components: {
@@ -181,23 +184,32 @@ export default {
         setCurrentSelectedRating(rating) {
             this.currentSelectedRating = "Ваша оценка: " + rating + " звёзд";
         },
-        publicReview() {
+        chooseReview() {
             if (this.reviewText.length > 0 && this.IS_REGISTERED) {
-                this.allReviews.push({
-                    review: this.reviewText,
-                    id: uuidv4(),
-                })
-                this.reviewText=""
+                this.isShowTypeRewiews=true;
             } else {
                 this.$router.push("/registration")
             }
         },
-        badReview(event) {
-            this.reviewType = event.target.value
+        badReview() {
+            this.allReviews.push({
+                review: this.reviewText,
+                id: uuidv4(),
+            })
+            this.reviewText=""
+            this.reviewType="Отрицательная"
+            this.isShowTypeRewiews=false
         },
-        goodReview(event) {
-            this.reviewType = event.target.value
+        goodReview() {
+            this.allReviews.push({
+                review: this.reviewText,
+                id: uuidv4(),
+            })
+            this.reviewText=""
+            this.reviewType="Положительная"
+            this.isShowTypeRewiews=false
         }
+
     },
     computed: {
         ...mapGetters(["ONE_FILM", "IS_REGISTERED"]),
@@ -509,6 +521,9 @@ textarea:focus {
     width: 536px;
     height: 500px;
     position: relative;
+}
+.make__review label{
+    color: white;
 }
 
 

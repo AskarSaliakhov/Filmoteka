@@ -46,6 +46,11 @@ img {
 .all__news{
     display: flex;
     overflow-x: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.all__news::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 

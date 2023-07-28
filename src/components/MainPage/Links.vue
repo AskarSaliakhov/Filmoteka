@@ -145,11 +145,6 @@ button:hover, #exit--tittle:hover {
     opacity: 0;
 }
 
-header {
-    opacity: 0;
-    animation: ani 1s forwards;
-}
-
 @keyframes ani {
     0% {
         opacity: 0;

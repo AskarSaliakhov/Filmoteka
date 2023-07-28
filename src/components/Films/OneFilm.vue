@@ -1,13 +1,12 @@
 <template>
     <div class="OneFilm">
-        <img :src="filmData.Poster" :alt="filmData.title" @click="redirectToFilm()">
+        <img :src="filmData.Poster" :alt="filmData.title" @click="redirectToFilm(filmData.id)">
         <div class="data__film">
             <p id="title__film">{{ filmData.title }}</p>
             <p id="title__country">Страны: {{ filmData.country }}</p>
             <p id="title__time">Продолжительность: {{ filmData.time }} </p>
             <p id="title__point">Рейтинг: {{ filmData.point }} </p>
         </div>
-
     </div>
 </template>
 
@@ -27,8 +26,6 @@ export default {
     props: {
         filmData: {
             type: Object,
-            default: () => {
-            }
         },
         dataAddedToWatchFilm: {
             type: Object,

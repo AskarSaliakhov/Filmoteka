@@ -156,7 +156,7 @@ export default {
             currentRating: "",
             reviewText: "",
             reviewType: "",
-            isShowTypeRewiews:false
+            isShowTypeRewiews:false,
         }
     },
     components: {
@@ -171,11 +171,11 @@ export default {
                     timeout: 2500,
                 });
             } else {
-                this.$router.push("/registration")
+                this.$router.push("/registration");
             }
         },
         addPoint() {
-            this.isPopupOpen = true
+            this.isPopupOpen = true;
         },
         showCurrentRating(rating) {
             this.currentRating = (rating === 0) ? this.currentSelectedRating : "Кликните,чтобы поставить " + rating + " звёзд"
@@ -188,46 +188,46 @@ export default {
             if (this.reviewText.length > 0 && this.IS_REGISTERED) {
                 this.isShowTypeRewiews=true;
             } else {
-                this.$router.push("/registration")
+                this.$router.push("/registration");
             }
         },
         badReview() {
             this.allReviews.push({
                 review: this.reviewText,
                 id: uuidv4(),
-            })
-            this.reviewText=""
-            this.reviewType="Отрицательная"
-            this.isShowTypeRewiews=false
+            });
+            this.reviewText="";
+            this.reviewType="Отрицательная";
+            this.isShowTypeRewiews=false;
         },
         goodReview() {
             this.allReviews.push({
                 review: this.reviewText,
                 id: uuidv4(),
-            })
-            this.reviewText=""
-            this.reviewType="Положительная"
-            this.isShowTypeRewiews=false
+            });
+            this.reviewText="";
+            this.reviewType="Положительная";
+            this.isShowTypeRewiews=false;
         }
 
     },
     computed: {
         ...mapGetters(["ONE_FILM", "IS_REGISTERED"]),
         allActors() {
-            return this.ONE_FILM.actors.split(",")
+            return this.ONE_FILM.actors.split(",");
         },
         allVoiceActors() {
-            return this.ONE_FILM.rolesDuplicated.split(",")
+            return this.ONE_FILM.rolesDuplicated.split(",");
         },
         allRelatedFilms() {
-            return this.ONE_FILM.relatedFilms
+            return this.ONE_FILM.relatedFilms;
         },
         allFacts() {
-            return this.ONE_FILM.facts
+            return this.ONE_FILM.facts;
         },
         allReviews() {
-            return this.ONE_FILM.reviews
-        }
+            return this.ONE_FILM.reviews;
+        },
     },
     updated() {
         let allReviews = document.querySelectorAll(".review")
@@ -238,6 +238,9 @@ export default {
         if (this.reviewType === "Отрицательная") {
             lastReview.classList.add('bad__review','qq')
         }
+    },
+    mounted() {
+        console.log(this.ONE_FILM)
     },
     mixins: [closePopup],
 }

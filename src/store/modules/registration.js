@@ -1,6 +1,6 @@
 export default {
     state:{
-        isRegistered:true
+        isRegistered:false
     },
     actions:{
         registrate({commit}) {

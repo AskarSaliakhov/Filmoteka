@@ -56,9 +56,9 @@ export default {
     directives: {mask},
     data() {
         return {
-            phoneNumber: "89173908500",
-            password: "Qwerty1",
-            repeatPassword: "Qwerty1",
+            phoneNumber: "",
+            password: "",
+            repeatPassword: "",
             isDataRight: null,
             isAlreadyLogIn: false,
         }

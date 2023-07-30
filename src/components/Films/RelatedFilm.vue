@@ -25,6 +25,7 @@ p {
     color: white;
     font-size: 20px;
     font-family: Tahoma, sans-serif;
+    max-width: 300px;
 }
 
 img {

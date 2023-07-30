@@ -119,17 +119,17 @@
                         :class="{
                             good__review:review.characteristic==='Положительная',
                             bad__review:review.characteristic==='Отрицательная',
-                            general__review:review.characteristic!=='Положительная'&& review.characteristic!=='Отрицательная'
+
                         }"
                     />
                 </div>
                 <div class="make__review">
                     <div v-if="isShowTypeRewiews">
-                        <input type="radio"   @click="goodReview" v-model="reviewType">
+                        <input type="radio" @click="goodReview" v-model="reviewType">
                         <label for="one">Положительная</label>
                         <br>
                         <input type="radio" @click="badReview" v-model="reviewType">
-                        <label for="two"  >Отрицательная</label>
+                        <label for="two">Отрицательная</label>
                     </div>
                     <textarea placeholder="Написать рецензию" v-model="reviewText"></textarea>
                     <button id="btn--make--review" @click="chooseReview">Опубликовать рецензию</button>
@@ -179,7 +179,6 @@ export default {
         },
         showCurrentRating(rating) {
             this.currentRating = (rating === 0) ? this.currentSelectedRating : "Кликните,чтобы поставить " + rating + " звёзд"
-
         },
         setCurrentSelectedRating(rating) {
             this.currentSelectedRating = "Ваша оценка: " + rating + " звёзд";
@@ -191,25 +190,22 @@ export default {
                 this.$router.push("/registration");
             }
         },
-        badReview() {
+        makeReview() {
             this.allReviews.push({
                 review: this.reviewText,
                 id: uuidv4(),
             });
             this.reviewText="";
-            this.reviewType="Отрицательная";
             this.isShowTypeRewiews=false;
         },
+        badReview() {
+            this.reviewType="Отрицательная";
+            this.makeReview()
+        },
         goodReview() {
-            this.allReviews.push({
-                review: this.reviewText,
-                id: uuidv4(),
-            });
-            this.reviewText="";
             this.reviewType="Положительная";
-            this.isShowTypeRewiews=false;
+            this.makeReview()
         }
-
     },
     computed: {
         ...mapGetters(["ONE_FILM", "IS_REGISTERED"]),
@@ -233,14 +229,14 @@ export default {
         let allReviews = document.querySelectorAll(".review")
         let lastReview = Array.prototype.slice.call(allReviews)[Array.prototype.slice.call(allReviews).length-1]
         if (this.reviewType === "Положительная") {
-            lastReview.classList.add('good__review','Review')
+            lastReview.classList.add('good__review')
         }
-        if (this.reviewType === "Отрицательная") {
-            lastReview.classList.add('bad__review','qq')
+        else if (this.reviewType === "Отрицательная") {
+            lastReview.classList.add('bad__review')
         }
     },
-    mounted() {
-        console.log(this.ONE_FILM)
+    created() {
+        document.title="Фильм"
     },
     mixins: [closePopup],
 }
@@ -471,7 +467,7 @@ export default {
 }
 
 .related__film {
-    margin-right: 20px;
+    margin-right: 90px;
 }
 
 textarea {
@@ -483,7 +479,7 @@ textarea {
     display: block;
     resize: none;
     width: 532px;
-    height: 300px;
+    height: 370px;
 }
 
 textarea:focus {
@@ -509,10 +505,6 @@ textarea:focus {
     background-color: #ebf7eb;
     width: 540px;
 }
-.general__review{
-    background-color: #edeef0;
-    width: 540px;
-}
 
 .bad__review {
     background-color: #ffebeb;
@@ -524,6 +516,7 @@ textarea:focus {
     width: 536px;
     height: 500px;
     position: relative;
+    margin-top: 30px;
 }
 .make__review label{
     color: white;

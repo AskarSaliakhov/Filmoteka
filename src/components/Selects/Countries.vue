@@ -1,6 +1,6 @@
 <template>
     <div class="Country">
-        <select v-on:change="selectCountry">
+        <select @change="selectCountry">
             <option @click="allCountries">Все страны</option>
             <option
                 v-for="film in countries"

@@ -1,7 +1,7 @@
 <template>
     <div class="AddedWatchAllFilms">
         <p id="title" v-if="ADDED_TO_WATCH_FILMS.length">Фильмы,которые вы собираетесь посмотреть: {{ADDED_TO_WATCH_FILMS.length}}</p>
-        <p v-else id="title">Добавьте фильмы,которые хотите посмотреть</p>
+        <p v-else id="title">Добавьте фильмы, которые хотите посмотреть</p>
         <button @click="deleteAllFilms" id="btn--delete--all" v-if="ADDED_TO_WATCH_FILMS.length">Удалить все</button>
         <AddedWatchOneFilm
             v-for="(film,index) in ADDED_TO_WATCH_FILMS"

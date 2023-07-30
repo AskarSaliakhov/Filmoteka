@@ -1,6 +1,6 @@
 <template>
     <div class="Year">
-        <select v-on:change="selectYear">
+        <select @change="selectYear">
             <option @click="allYears">Все годы</option>
             <option
                 v-for="film in years"

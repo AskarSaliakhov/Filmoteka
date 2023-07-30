@@ -18,7 +18,7 @@ export default {
     },
     mutations: {
         setOneFilmData(state, film) {
-            state.oneFilm =  { ...state.oneFilm, ...film}
+            state.oneFilm =film
         },
     },
     getters: {

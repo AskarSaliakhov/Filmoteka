@@ -52,7 +52,6 @@ export default {
                 this.updateFilm()
             }
         }
-
     },
     computed: {
         ...mapGetters(['ALL_FILMS']),

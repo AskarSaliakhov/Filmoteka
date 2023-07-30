@@ -7,7 +7,7 @@
             :visible-slide="visibleSlide"
             :direction="direction"
         >
-            <button id="previous" @click="previousPhoto">
+            <button  @click="previousPhoto">
                 <img id="back--png" src="../../../assets/back.png" alt="назад">
             </button>
             <img

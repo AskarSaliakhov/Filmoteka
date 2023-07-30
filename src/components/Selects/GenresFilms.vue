@@ -1,7 +1,7 @@
 <template>
     <div class="Genders">
         <ul>
-            <li @click="handleAllGenres" id="common" :class="{active:isAllGenres}">ВСЕ ЖАНРЫ</li>
+            <li @click="handleAllGenres" :class="{active:isAllGenres}">ВСЕ ЖАНРЫ</li>
             <li v-for="film in genres"
                 :key="film.id"
                 :class="{'active':film.id===selectedFilm}"

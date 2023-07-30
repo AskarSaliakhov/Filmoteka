@@ -55,11 +55,11 @@
             </div>
             <div class="all__selects">
                 <div class="general__select">
-                    <select id="general--select">
+                    <select @change="sortBy" id="general--select">
                         <option hidden>Выберите условие</option>
-                        <option @click="sortByYear">По дате выхода</option>
-                        <option @click="sortByName">По названию фильма</option>
-                        <option @click="sortByRaiting">По рейтингу</option>
+                        <option>По дате выхода</option>
+                        <option>По названию фильма</option>
+                        <option>По рейтингу</option>
                     </select>
                 </div>
 
@@ -112,6 +112,17 @@ export default {
         sortByYear() {
             this.filmsByCategory.sort((a, b) => parseFloat(b.year) - parseFloat(a.year));
         },
+        sortBy(event) {
+            if (event.target.value==="По дате выхода") {
+                this.sortByYear()
+            }
+            else if (event.target.value==="По рейтингу") {
+                this.sortByRaiting();
+            }
+            else {
+                this.sortByName()
+            }
+        },
         selectYears(year) {
             this.selectedYear = year;
             this.onlyYears = []
@@ -150,7 +161,7 @@ export default {
             this.filmsByCategory = this.ALL_FILMS;
         },
         getAllFilmsWithoutTime() {
-            this.filmsByCategory=[];
+            this.filmsByCategory = [];
             for (let i = 0; i < this.ALL_FILMS.length; i++) {
                 const countries = this.ALL_FILMS[i].country.split(",")
                 for (let k = 0; k < countries.length; k++) {
@@ -161,10 +172,10 @@ export default {
                     }
                 }
             }
-            this.selectedYear="Все годы"
+            this.selectedYear = "Все годы"
         },
         getAllFilmsWithoutCountry() {
-            this.filmsByCategory=[];
+            this.filmsByCategory = [];
             if (this.selectedYear.length === 4) {
                 for (let i = 0; i < this.ALL_FILMS.length; i++) {
                     if (this.selectedYear === this.ALL_FILMS[i].year) {
@@ -179,7 +190,7 @@ export default {
                     }
                 }
             }
-            this.selectedCountry="Все страны";
+            this.selectedCountry = "Все страны";
         },
         scrollToTop() {
             window.scrollTo({
@@ -218,7 +229,6 @@ export default {
                 }
             }
         },
-
     },
     computed: {
         ...mapGetters(["ALL_FILMS"]),
@@ -250,15 +260,12 @@ export default {
             this.isExistsFilms = this.filmsByCategory.length !== 0;
         },
         selectedYear() {
-            if (this.selectedYear==="Все годы" && this.selectedCountry==="Все страны") {
-                this.filmsByCategory = this.onlyYears = this.onlyCountries = this.ALL_FILMS;
-            }
+
         },
         selectedCountry() {
-            if (this.selectedYear==="Все годы" && this.selectedCountry==="Все страны") {
-                this.filmsByCategory = this.onlyYears = this.onlyCountries = this.ALL_FILMS;
-            }
+
         }
+
     }
 }
 </script>

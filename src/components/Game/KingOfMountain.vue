@@ -6,18 +6,18 @@
                 <p/>
                 <div class="photos">
                     <div class="first__film">
-                        <img :src="firstFilm.Poster" @click="chooseLeftFilm">
+                        <img :src="firstFilm.Poster" :alt="firstFilm.title" @click="chooseLeftFilm">
                         <p id="title--film">{{ firstFilm.title }}</p>
                     </div>
                     <div class="second__film">
-                        <img :src="secondFilm.Poster" @click="chooseRightFilm">
+                        <img :src="secondFilm.Poster" :alt="secondFilm.title" @click="chooseRightFilm">
                         <p id="title--film">{{ secondFilm.title }}</p>
                     </div>
                 </div>
             </div>
             <div v-else class="winner">
                 <p id="winner--title">Победитель</p>
-                <img :src="firstFilm.Poster">
+                <img :src="firstFilm.Poster" :alt="firstFilm.title">
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@ export default {
 img {
     width: 400px;
     height: 450px;
-    transition: transform 0.25s;
+        transition: transform 0.25s;
 }
 
 img:hover {
@@ -75,10 +75,18 @@ img:hover {
 #winner--title {
     font-family: cursive;
 }
+
 @media (max-width: 768px) {
-    .KingOfMountain{
+    .KingOfMountain {
         position: absolute;
     }
 }
+
+
+
+
+
+
+
 
 </style>

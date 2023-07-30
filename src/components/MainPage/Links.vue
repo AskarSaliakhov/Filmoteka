@@ -39,9 +39,6 @@
             <button id="exit--system" @click="exitFromSystem">Выйти</button>
         </header>
 
-        <keep-alive>
-            <router-view></router-view>
-        </keep-alive>
     </div>
 </template>
 

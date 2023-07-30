@@ -12,55 +12,82 @@ import OnePieceOfNews from "@/components/MainPage/News/OnePieceOfNews";
 
 Vue.use(Router)
 
-let router=new Router({
-    routes:[
+let router = new Router({
+    mode:"history",
+    base:process.env.BASE_URL,
+    routes: [
         {
-            path:'/AllFilms',
-            name:'allFilms',
-            component:AllFilms
+            path: '/AllFilms',
+            name: 'allFilms',
+            component: AllFilms,
+            meta:{
+                title:'Все фильмы'
+            }
         },
         {
-          path:'',
-          name:'MainPage',
-          component:MainPage
+            path: '',
+            name: 'MainPage',
+            component: MainPage,
+            meta:{
+                title:'Фильмотека'
+            }
         },
         {
-            path:'/film/:id',
-            name:'film',
-            component:DefineteFilm
+            path: '/film/:id',
+            name: 'film',
+            component: DefineteFilm,
         },
         {
-            path:'/news/:id',
-            name:'oneNews',
-            component:OnePieceOfNews
+            path: '/news/:id',
+            name: 'oneNews',
+            component: OnePieceOfNews,
         },
         {
-            path:"/registration",
-            name:"registration",
-            component:Registration
+            path: "/registration",
+            name: "registration",
+            component: Registration,
+            meta:{
+                title:'Регистрация'
+            }
         },
         {
-            path:"/addedToWatchFilms",
-            name:"addedToWatchFilms",
-            component:AddedWatchAllFilms
+            path: "/addedToWatchFilms",
+            name: "addedToWatchFilms",
+            component: AddedWatchAllFilms,
+            meta:{
+                title:'Добавленные фильмы'
+            }
         },
         {
-            path:"/chooseFormat",
-            name:"chooseFormat",
-            component:ChooseFormat
+            path: "/chooseFormat",
+            name: "chooseFormat",
+            component: ChooseFormat,
+            meta:{
+                title:'Выберите формат'
+            }
         },
         {
-            path:'/voting/PlayOffs',
-            name:"PlayOff",
-            component:PlayOff
+            path: '/voting/PlayOffs',
+            name: "PlayOff",
+            component: PlayOff,
+            meta:{
+                title:'Плей-офф'
+            }
         },
         {
-            path:'/voting/KingOfMountain',
-            name:"KingOfMountain",
-            component:KingOfMountain
+            path: '/voting/KingOfMountain',
+            name: "KingOfMountain",
+            component: KingOfMountain,
+            meta:{
+                title:'Царь горы'
+            }
         }
 
     ]
 })
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title;
+    next();
+});
 
 export default router

@@ -1,5 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import createPersistedState from "vuex-persistedstate";
 import allFilms from "@/store/modules/allFilms";
 import carouselFilms from "@/store/modules/carouselFilms";
 import oneFilm from "@/store/modules/oneFilm";
@@ -20,5 +21,6 @@ export default new Vuex.Store({
         news,
         showNews,
         oneNews
-    }
+    },
+    plugins:[createPersistedState()]
 })

@@ -238,7 +238,7 @@ export default {
     created() {
         document.title="Фильм"
     },
-    mixins: [closePopup],
+    mixins: [closePopup]
 }
 </script>
 <style>

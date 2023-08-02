@@ -260,7 +260,7 @@ export default {
             this.isExistsFilms = this.filmsByCategory.length !== 0;
         },
         selectedYear() {
-
+            //TODO ПОМЕНЯТЬ фильтры баг     =
         },
         selectedCountry() {
 

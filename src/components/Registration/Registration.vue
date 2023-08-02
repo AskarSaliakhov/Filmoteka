@@ -8,7 +8,9 @@
                     <li class="incorrect__message">Проверьте,что номер телефона из 11 цифр.</li>
                     <li class="incorrect__message">Проверьте,что длина длина пароля больше 5 символов.</li>
                     <li class="incorrect__message">Проверьте,что пароли совпадают.</li>
-                    <li class="incorrect__message">Проверьте,что пароль содержит только латинские буквы,одну заглавную и минимум одну цифру.</li>
+                    <li class="incorrect__message">Проверьте,что пароль содержит только латинские буквы,одну заглавную и
+                        минимум одну цифру.
+                    </li>
                 </ul>
             </div>
         </div>
@@ -73,8 +75,7 @@ export default {
                 this.phoneNumber.length === 17 &&
                 this.onlyLettersAndNumbers(this.password)
             ) {
-                this.isDataRight = true;
-                this.isAlreadyLogIn = true;
+                this.isDataRight = this.isAlreadyLogIn = true;
                 this.registrate();
                 history.back();
             } else {
@@ -282,7 +283,8 @@ p, li {
     position: relative;
     top: 50px
 }
-#tittle--wrong{
+
+#tittle--wrong {
     padding-left: 23px;
 }
 
@@ -298,7 +300,8 @@ p, li {
     background-color: #afafaf;
     color: #15172b;
 }
-.title,.subtitle{
+
+.title, .subtitle {
     padding-left: 10px;
 }
 

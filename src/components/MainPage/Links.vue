@@ -56,8 +56,9 @@ export default {
     methods: {
         ...mapActions(["exit"]),
         exitFromSystem() {
-            this.exit()
             this.isModalOpen = false
+            this.exit()
+            this.$router.push('allFilms')
         },
         openModal() {
             this.isModalOpen = true;
@@ -65,7 +66,6 @@ export default {
         closeModal() {
             this.isModalOpen = false;
         },
-
     },
     computed: {
         ...mapGetters(["IS_REGISTERED", "ADDED_TO_WATCH_FILMS"])

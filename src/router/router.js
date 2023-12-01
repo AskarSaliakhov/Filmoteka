@@ -36,6 +36,9 @@ let router = new Router({
             path: '/film/:id',
             name: 'film',
             component: DefineteFilm,
+            meta:{
+                title: "Фильм"
+            }
         },
         {
             path: '/news/:id',

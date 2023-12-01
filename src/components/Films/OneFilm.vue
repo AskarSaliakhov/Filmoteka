@@ -1,5 +1,5 @@
 <template>
-    <div class="OneFilm">
+    <div class="OneFilm" @click="redirectToFilm(filmData.id)">
         <img :src="filmData.Poster" :alt="filmData.title" @click="redirectToFilm(filmData.id)">
         <div class="data__film">
             <p id="title__film">{{ filmData.title }}</p>
@@ -20,7 +20,7 @@ export default {
         ...mapActions(["getFilm"]),
         redirectToFilm() {
             this.getFilm(this.filmData.id - 1)
-            this.$router.push({name: 'film', params: {id: this.filmData.id}})
+            this.$router.push({name: 'film', params: {id: this.filmData.id}}).catch(()=>{})
         }
     },
     props: {
@@ -77,6 +77,9 @@ img {
 
 img:hover {
     transform: scale(1.1)
+}
+.OneFilm{
+    cursor: pointer;
 }
 
 

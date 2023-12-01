@@ -69,7 +69,8 @@
                 <div class="main__actors">
                     <p id="tittle--main--actors">В главных ролях</p>
                     <ul
-                        v-for="actor in allActors" :key="actor"
+                        v-for="actor in allActors"
+                        :key="actor"
                     >
                         <li id="main--actor">{{ actor }}</li>
                     </ul>
@@ -77,7 +78,8 @@
                 <div class="voice__actors">
                     <p id="tittle--voice--actors">Роли озвучивали</p>
                     <ul
-                        v-for="actorVoice in allVoiceActors" :key="actorVoice"
+                        v-for="actorVoice in allVoiceActors"
+                        :key="actorVoice"
                     >
                         <li id="voice--actor">{{ actorVoice }}</li>
                     </ul>
@@ -95,7 +97,7 @@
                     <div class="related__films">
                         <RelatedFilm
                             v-for="film in allRelatedFilms"
-                            :key="film.id+'related'"
+                            :key="film.id"
                             :related-film="film"
                             class="related__film"
                         />
@@ -131,7 +133,12 @@
                         <input type="radio" @click="badReview" v-model="reviewType">
                         <label for="two">Отрицательная</label>
                     </div>
-                    <textarea placeholder="Написать рецензию" v-model="reviewText"></textarea>
+                    <textarea
+                        placeholder="Написать рецензию"
+                        v-model="reviewText"
+                        class="message"
+                    >
+                    </textarea>
                     <button id="btn--make--review" @click="chooseReview">Опубликовать рецензию</button>
                 </div>
             </div>
@@ -156,7 +163,7 @@ export default {
             currentRating: "",
             reviewText: "",
             reviewType: "",
-            isShowTypeRewiews:false,
+            isShowTypeRewiews: false,
         }
     },
     components: {
@@ -185,7 +192,7 @@ export default {
         },
         chooseReview() {
             if (this.reviewText.length > 0 && this.IS_REGISTERED) {
-                this.isShowTypeRewiews=true;
+                this.isShowTypeRewiews = true;
             } else {
                 this.$router.push("/registration");
             }
@@ -195,15 +202,15 @@ export default {
                 review: this.reviewText,
                 id: uuidv4(),
             });
-            this.reviewText="";
-            this.isShowTypeRewiews=false;
+            this.reviewText = "";
+            this.isShowTypeRewiews = false;
         },
         badReview() {
-            this.reviewType="Отрицательная";
+            this.reviewType = "Отрицательная";
             this.makeReview()
         },
         goodReview() {
-            this.reviewType="Положительная";
+            this.reviewType = "Положительная";
             this.makeReview()
         }
     },
@@ -227,16 +234,12 @@ export default {
     },
     updated() {
         let allReviews = document.querySelectorAll(".review")
-        let lastReview = Array.prototype.slice.call(allReviews)[Array.prototype.slice.call(allReviews).length-1]
+        let lastReview = Array.prototype.slice.call(allReviews)[Array.prototype.slice.call(allReviews).length - 1]
         if (this.reviewType === "Положительная") {
             lastReview.classList.add('good__review')
-        }
-        else if (this.reviewType === "Отрицательная") {
+        } else if (this.reviewType === "Отрицательная") {
             lastReview.classList.add('bad__review')
         }
-    },
-    created() {
-        document.title="Фильм"
     },
     mixins: [closePopup]
 }
@@ -478,8 +481,10 @@ textarea {
     border-radius: 10px;
     display: block;
     resize: none;
-    width: 532px;
+    width: 524px;
     height: 370px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 textarea:focus {
@@ -518,9 +523,12 @@ textarea:focus {
     position: relative;
     margin-top: 30px;
 }
-.make__review label{
+
+.make__review label {
     color: white;
 }
 
-
+.message:-ms-input-placeholder {
+    padding-top: 10px;
+}
 </style>

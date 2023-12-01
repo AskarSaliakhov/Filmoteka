@@ -37,9 +37,7 @@ export default {
     align-items: center;
     display: flex;
 }
-.carousel{
-    padding-top: 20px;
-}
+
 .all__news{
     width: 100%;
     overflow-x: scroll;

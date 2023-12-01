@@ -238,7 +238,9 @@ export default {
             if (this.search.trim() === "") {
                 return this.filmsByCategory.slice(from, to);
             } else {
-                return this.filmsByCategory.filter(film => film.title.toLowerCase().includes(this.search.toLowerCase().trim())).slice(from, to);
+                return this.filmsByCategory.filter(film => film.title.toLowerCase()
+                    .includes(this.search.toLowerCase().trim()))
+                    .slice(from, to);
             }
         },
     },
@@ -260,7 +262,9 @@ export default {
             this.isExistsFilms = this.filmsByCategory.length !== 0;
         },
         selectedYear() {
-            //TODO ПОМЕНЯТЬ фильтры баг     =
+            if (this.selectedYear==="Все годы") {
+                console.log()
+            }
         },
         selectedCountry() {
 
@@ -283,6 +287,7 @@ export default {
     height: 30px;
     border-radius: 10px;
     border: none;
+    padding: 10px;
 }
 
 .all__films__data {
@@ -377,6 +382,8 @@ input:focus {
     color: white;
     border-radius: 10px;
     border: 1px solid black;
+    width: 200px;
+    height: 50px;
 }
 
 .all__selects {

@@ -79,22 +79,17 @@ export default {
 button{
     position: absolute;
     height: 33px;
-    width: 45px;
     top: 42%;
     border: none;
     z-index: 10;
     text-align: center;
+    background-color: #606060 ;
 }
-#previous{
-    left: 0;
-}
+
 #next {
     right: 0;
 }
-.shadow{
-    opacity: 0.4;
-    filter: alpha(opacity=40);
-}
+
 #back--png,#next--png{
     width: 30px;
     height: 30px;

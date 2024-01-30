@@ -52,7 +52,8 @@ select{
     border-radius:10px;
     border: 1px solid black;
     padding-bottom: 10px;
-    width: 200px;
+    min-width: 230px;
+    min-height: 30px;
     margin-top: 20px;
 }
 </style>

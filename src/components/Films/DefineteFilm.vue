@@ -34,11 +34,11 @@
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__country">Страна:</p>
-                    <p id="film--info" >{{ ONE_FILM.country }}</p>
+                    <p id="film--info">{{ ONE_FILM.country }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__genre">Жанр:</p>
-                    <p id="film--info" >{{ ONE_FILM.genre }}</p>
+                    <p id="film--info">{{ ONE_FILM.genre }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__producer">Режиссер:</p>
@@ -46,11 +46,11 @@
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__slogan">Слоган:</p>
-                    <p id="film--info" class="slogan" >{{ ONE_FILM.slogan }}</p>
+                    <p id="film--info" class="slogan">{{ ONE_FILM.slogan }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__budget">Бюджет:</p>
-                    <p id="film--info" >{{ ONE_FILM.budget }}</p>
+                    <p id="film--info">{{ ONE_FILM.budget }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__fees">Сборы в мире:</p>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__premiere__world">Премьера в мире:</p>
-                    <p id="film--info" >{{ ONE_FILM.premiere }}</p>
+                    <p id="film--info">{{ ONE_FILM.premiere }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="stat--info" class="info__time">Время:</p>
@@ -149,6 +149,7 @@
 import StarRating from "vue-star-rating";
 import RelatedFilm from "@/components/Films/RelatedFilm";
 import closePopup from "@/mixins/closePopup";
+import scroll from "@/mixins/scroll";
 import {mapGetters, mapActions} from "vuex";
 import OneFact from "@/components/Films/Facts/OneFact";
 import Review from "@/components/Films/Reviews/Review";
@@ -241,7 +242,7 @@ export default {
             lastReview.classList.add('bad__review')
         }
     },
-    mixins: [closePopup]
+    mixins: [closePopup,scroll]
 }
 </script>
 <style>
@@ -293,7 +294,8 @@ export default {
 .info__year, .info__country, .info__genre, .info__producer, .info__slogan, .info__budget, .info__premiere__world, .info__fees, .info__time {
     min-width: 160px;
 }
-.slogan{
+
+.slogan {
     max-width: 400px;
 }
 

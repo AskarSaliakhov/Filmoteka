@@ -45,7 +45,8 @@
                         {{ filmNumber }}
                     </button>
                     <button
-                        v-if="this.paginatedFilms.length/this.filmsPerPage===1 && filmNumber<ALL_FILMS.length/filmsPerPage"
+                        v-if="this.paginatedFilms.length / this.filmsPerPage === 1 &&
+                              filmNumber<ALL_FILMS.length / filmsPerPage"
                         class="page"
                         @click="nextPage"
                     >
@@ -113,13 +114,11 @@ export default {
             this.filmsByCategory.sort((a, b) => parseFloat(b.year) - parseFloat(a.year));
         },
         sortBy(event) {
-            if (event.target.value==="По дате выхода") {
+            if (event.target.value === "По дате выхода") {
                 this.sortByYear()
-            }
-            else if (event.target.value==="По рейтингу") {
+            } else if (event.target.value === "По рейтингу") {
                 this.sortByRaiting();
-            }
-            else {
+            } else {
                 this.sortByName()
             }
         },
@@ -262,7 +261,7 @@ export default {
             this.isExistsFilms = this.filmsByCategory.length !== 0;
         },
         selectedYear() {
-            if (this.selectedYear==="Все годы") {
+            if (this.selectedYear === "Все годы") {
                 console.log()
             }
         },
@@ -373,6 +372,7 @@ input:focus {
     font-weight: 400;
     font-size: 18px;
     margin-top: 10px;
+    min-width: 200px;
 }
 
 
@@ -382,7 +382,7 @@ input:focus {
     color: white;
     border-radius: 10px;
     border: 1px solid black;
-    width: 200px;
+    min-width: 230px;
     height: 50px;
 }
 

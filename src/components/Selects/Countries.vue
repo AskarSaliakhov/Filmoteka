@@ -44,14 +44,15 @@ export default {
 </script>
 <style scoped>
 select{
-    padding: 1em 1.5em;
     background: #15172b;
     color: white;
     border-radius:10px;
     border: 1px solid black;
-    padding-bottom: 10px;
-    width: 200px;
+    padding: 1em 1.5em 10px;
+    min-width: 230px;
+    min-height: 30px;
     margin-top: 20px;
+
 }
 </style>
 

@@ -22,6 +22,7 @@
 <script>
 
 import {mapGetters} from "vuex";
+import scroll from "@/mixins/scroll";
 
 export default {
     name: "OnePieceOfNews",
@@ -38,7 +39,8 @@ export default {
     },
     created() {
         document.title='Новость'
-    }
+    },
+    mixins:[scroll]
 }
 </script>
 

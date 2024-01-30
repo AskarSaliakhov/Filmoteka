@@ -291,7 +291,7 @@ export default {
 }
 
 .info__year, .info__country, .info__genre, .info__producer, .info__slogan, .info__budget, .info__premiere__world, .info__fees, .info__time {
-    min-width: 140px;
+    min-width: 160px;
 }
 .slogan{
     max-width: 400px;

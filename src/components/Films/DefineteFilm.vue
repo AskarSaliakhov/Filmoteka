@@ -29,40 +29,40 @@
                 <p id="title--film">{{ ONE_FILM.title }}</p>
                 <p id="tittle--about--film">О фильме</p>
                 <div class="div__flex">
-                    <p id="stat--info">Год производства:</p>
-                    <p id="film--info" class="info__year">{{ ONE_FILM.year }}</p>
+                    <p id="stat--info" class="info__year">Год производства:</p>
+                    <p id="film--info">{{ ONE_FILM.year }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Страна:</p>
-                    <p id="film--info" class="info__country">{{ ONE_FILM.country }}</p>
+                    <p id="stat--info" class="info__country">Страна:</p>
+                    <p id="film--info" >{{ ONE_FILM.country }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Жанр:</p>
-                    <p id="film--info" class="info__genre">{{ ONE_FILM.genre }}</p>
+                    <p id="stat--info" class="info__genre">Жанр:</p>
+                    <p id="film--info" >{{ ONE_FILM.genre }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Режиссер:</p>
-                    <p id="film--info" class="info__producer">{{ ONE_FILM.producer }}</p>
+                    <p id="stat--info" class="info__producer">Режиссер:</p>
+                    <p id="film--info">{{ ONE_FILM.producer }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Слоган:</p>
-                    <p id="film--info" class="info__slogan">{{ ONE_FILM.slogan }}</p>
+                    <p id="stat--info" class="info__slogan">Слоган:</p>
+                    <p id="film--info" class="slogan" >{{ ONE_FILM.slogan }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Бюджет:</p>
-                    <p id="film--info" class="info__budget">{{ ONE_FILM.budget }}</p>
+                    <p id="stat--info" class="info__budget">Бюджет:</p>
+                    <p id="film--info" >{{ ONE_FILM.budget }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Сборы в мире:</p>
-                    <p id="film--info" class="info__fees">{{ ONE_FILM.feesInTheWorld }}</p>
+                    <p id="stat--info" class="info__fees">Сборы в мире:</p>
+                    <p id="film--info">{{ ONE_FILM.feesInTheWorld }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Премьера в мире:</p>
-                    <p id="film--info" class="info__premiere__world">{{ ONE_FILM.premiere }}</p>
+                    <p id="stat--info" class="info__premiere__world">Премьера в мире:</p>
+                    <p id="film--info" >{{ ONE_FILM.premiere }}</p>
                 </div>
                 <div class="div__flex">
-                    <p id="stat--info">Время:</p>
-                    <p id="film--info" class="info__time">{{ ONE_FILM.time }}</p>
+                    <p id="stat--info" class="info__time">Время:</p>
+                    <p id="film--info">{{ ONE_FILM.time }}</p>
                 </div>
             </div>
             <div class="all__actors">
@@ -291,46 +291,12 @@ export default {
 }
 
 .info__year, .info__country, .info__genre, .info__producer, .info__slogan, .info__budget, .info__premiere__world, .info__fees, .info__time {
-    position: relative;
+    min-width: 140px;
 }
-
-.info__year {
-    left: 20px;
-}
-
-.info__fees {
-    left: 45px;
-}
-
-.info__country {
-    left: 89px;
-}
-
-.info__genre {
-    left: 101px;
-}
-
-.info__slogan {
-    position: relative;
-    left: 90px;
+.slogan{
     max-width: 400px;
 }
 
-.info__producer {
-    left: 75px;
-}
-
-.info__budget {
-    left: 85px;
-}
-
-.info__time {
-    left: 95px;
-}
-
-.info__premiere__world {
-    left: 25px;
-}
 
 #film--info {
     color: white;

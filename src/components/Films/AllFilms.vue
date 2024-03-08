@@ -159,33 +159,37 @@ export default {
         getAllFilms() {
             this.filmsByCategory = this.ALL_FILMS;
         },
-        getAllFilmsWithoutTime() {
-            this.filmsByCategory = [];
-            for (let i = 0; i < this.ALL_FILMS.length; i++) {
-                const countries = this.ALL_FILMS[i].country.split(",")
-                for (let k = 0; k < countries.length; k++) {
-                    countries[k] = countries[k].trim();
-                    if (this.selectedCountry === countries[k]) {
-                        this.filmsByCategory.push(this.ALL_FILMS[i])
-                        break;
+        getAllFilmsWithoutTime(data) {
+            if (data !== this.selectedYear) {
+                this.filmsByCategory = [];
+                for (let i = 0; i < this.ALL_FILMS.length; i++) {
+                    const countries = this.ALL_FILMS[i].country.split(",")
+                    for (let k = 0; k < countries.length; k++) {
+                        countries[k] = countries[k].trim();
+                        if (this.selectedCountry === countries[k]) {
+                            this.filmsByCategory.push(this.ALL_FILMS[i])
+                            break;
+                        }
                     }
                 }
             }
             this.selectedYear = "Все годы"
         },
-        getAllFilmsWithoutCountry() {
-            this.filmsByCategory = [];
-            if (this.selectedYear.length === 4) {
-                for (let i = 0; i < this.ALL_FILMS.length; i++) {
-                    if (this.selectedYear === this.ALL_FILMS[i].year) {
-                        this.filmsByCategory.push(this.ALL_FILMS[i]);
+        getAllFilmsWithoutCountry(data) {
+            if (data !== this.selectedCountry) {
+                this.filmsByCategory = [];
+                if (this.selectedYear.length === 4) {
+                    for (let i = 0; i < this.ALL_FILMS.length; i++) {
+                        if (this.selectedYear === this.ALL_FILMS[i].year) {
+                            this.filmsByCategory.push(this.ALL_FILMS[i]);
+                        }
                     }
-                }
-            } else {
-                const years = this.selectedYear.split("-");
-                for (let i = 0; i < this.ALL_FILMS.length; i++) {
-                    if (years[0] <= this.ALL_FILMS[i].year && this.ALL_FILMS[i].year <= years[1]) {
-                        this.filmsByCategory.push(this.ALL_FILMS[i]);
+                } else {
+                    const years = this.selectedYear.split("-");
+                    for (let i = 0; i < this.ALL_FILMS.length; i++) {
+                        if (years[0] <= this.ALL_FILMS[i].year && this.ALL_FILMS[i].year <= years[1]) {
+                            this.filmsByCategory.push(this.ALL_FILMS[i]);
+                        }
                     }
                 }
             }
@@ -261,16 +265,32 @@ export default {
             this.isExistsFilms = this.filmsByCategory.length !== 0;
         },
         selectedYear() {
-            if (this.selectedYear === "Все годы") {
-                console.log()
+            if ((this.selectedYear.trim() === "Все годы" && this.selectedCountry.trim() === "") || (this.selectedCountry.trim() === "Все страны" && this.selectedYear.trim() === "Все годы")) {
+                this.getAllFilms()
+                this.filmsByCategory = this.ALL_FILMS;
+            }
+            else if (this.selectedCountry.trim() !== "" && this.selectedYear.trim() === "Все годы") {
+                this.getAllFilmsWithoutTime();
+            }
+            else if (this.selectedCountry==="Все страны" && this.selectedYear!=="") {
+                this.getAllFilmsWithoutCountry();
             }
         },
         selectedCountry() {
-
+            if ((this.selectedCountry.trim() === "Все страны" && this.selectedYear.trim() === "") || (this.selectedCountry.trim() === "Все страны" && this.selectedYear.trim() === "Все годы")) {
+                this.getAllFilms()
+                this.filmsByCategory = this.ALL_FILMS;
+            }
+            else if ((this.selectedYear !== "" && this.selectedCountry === "Все страны")) {
+                this.getAllFilmsWithoutCountry();
+            }
+            else if (this.selectedYear==="Все годы" && this.selectedCountry!=="") {
+                this.getAllFilmsWithoutTime();
+            }
         }
-
     }
 }
+
 </script>
 <style>
 .AllFilms {

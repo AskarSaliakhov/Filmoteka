@@ -35,7 +35,7 @@ export default {
             this.$emit("takeYear",event.target.value)
         },
         allYears() {
-            this.$emit("takeAllYears")
+            this.$emit("takeAllYears",'Все годы')
         }
     }
 }

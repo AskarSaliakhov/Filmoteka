@@ -37,7 +37,7 @@ export default {
             this.$emit("takeCountry", event.target.value)
         },
         allCountries() {
-            this.$emit("takeAllCountries")
+            this.$emit("takeAllCountries",'Все страны')
         }
     }
 }

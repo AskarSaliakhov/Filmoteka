@@ -292,7 +292,7 @@ export default {
 }
 
 </script>
-<style>
+<style scoped>
 .AllFilms {
     display: flex;
     justify-content: center;
@@ -307,6 +307,7 @@ export default {
     border-radius: 10px;
     border: none;
     padding: 10px;
+    margin-left: 20px;
 }
 
 .all__films__data {
@@ -427,4 +428,38 @@ input {
     text-align: center;
 }
 
+@media only screen and (max-width: 768px) {
+    .AllFilms {
+        padding: 10px;
+    }
+
+    .all__genres {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 20px;
+    }
+
+    .all__selects {
+        margin-left: 0;
+    }
+
+    .all__films {
+        margin-left: 0;
+    }
+
+    #gif {
+        margin-left: 0;
+    }
+
+    #title--no--films {
+        margin-left: 0;
+    }
+
+    .itemsPagination {
+        left: auto;
+        margin-top: 20px;
+    }
+}
 </style>
+

@@ -1,6 +1,6 @@
 <template>
     <div class="AddedWatchAllFilms">
-        <p id="title" v-if="ADDED_TO_WATCH_FILMS.length">Фильмы,которые вы собираетесь посмотреть: {{ADDED_TO_WATCH_FILMS.length}}</p>
+        <p id="title" v-if="ADDED_TO_WATCH_FILMS.length">Фильмы, которые вы собираетесь посмотреть: {{ADDED_TO_WATCH_FILMS.length}}</p>
         <p v-else id="title">Добавьте фильмы, которые хотите посмотреть</p>
         <button @click="deleteAllFilms" id="btn--delete--all" v-if="ADDED_TO_WATCH_FILMS.length">Удалить все</button>
         <AddedWatchOneFilm
@@ -15,7 +15,6 @@
 <script>
 import {mapGetters} from "vuex";
 import AddedWatchOneFilm from "@/components/AddedFilmsWatch/AddedWatchOneFilm";
-
 
 export default {
     name: "AddedWatchAllFilms",
@@ -41,18 +40,25 @@ export default {
     font-size: 20px;
     font-family: Verdana, sans-serif;
 }
+
 #btn--delete--all{
-    position: relative;
-    bottom: 10px;
-    left: 92%;
     width: 100px;
     background-color: #0f1015;
     border: none;
     color: white;
     transition: transform 0.5s;
+    margin: 10px auto;
 }
+
 #btn--delete--all:hover{
     color: goldenrod;
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #btn--delete--all {
+        width: 80px;
+        font-size: 14px;
+    }
 }
 </style>

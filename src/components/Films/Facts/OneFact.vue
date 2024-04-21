@@ -1,23 +1,24 @@
 <template>
     <div class="OneFact">
-        <div class="fact">{{oneFact.fact}}</div>
+        <div class="fact">{{ oneFact.fact }}</div>
     </div>
 </template>
 
 <script>
 export default {
     name: "OneFact",
-    props:{
-        oneFact:{
-            type:Object,
-            default: () => {
-            }
+    props: {
+        oneFact: {
+            type: Object,
+            default: () => ({})
         }
     }
 }
 </script>
 
 <style scoped>
+
+
 .fact{
     border-top:1px solid gray ;
     border-bottom:1px solid gray ;
@@ -27,5 +28,14 @@ export default {
     align-items: center;
     display: flex;
     max-height: 1000px;
+}
+
+
+@media (max-width: 768px) {
+    .fact {
+        height: auto; /* Автоматическая высота для мобильных устройств */
+        padding: 10px; /* Добавим немного отступа внутри блока */
+        font-size: 14px; /* Уменьшим размер шрифта для мобильных устройств */
+    }
 }
 </style>

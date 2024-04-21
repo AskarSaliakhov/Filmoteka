@@ -52,7 +52,7 @@ export default {
 }
 
 img {
-    width: 200px;
+    width: 250px;
     height: 250px;
 }
 
@@ -76,7 +76,8 @@ p {
     color: #484747;
     padding-left: 30px;
 }
-#btn--delete--film{
+
+#btn--delete--film {
     cursor: pointer;
     transition: transform 0.5s;
     margin-left: 30px;
@@ -85,26 +86,44 @@ p {
     border: none;
     color: white;
 }
+
 #btn--delete--film:hover {
     transform: scale(1.1);
     color: goldenrod;
 }
-.info__title,.info__time,.info__country,.info__point{
+
+.info__title,
+.info__time,
+.info__country,
+.info__point {
     position: relative;
 }
-.info__point{
+
+.info__point {
     left: 42px;
 }
-.info__country{
+
+.info__country {
     left: 115px;
 }
-.info__time{
+
+.info__time {
     left: 120px;
 }
-.info__title{
+
+.info__title {
     left: 100px;
 }
-p{
+
+p {
     font-family: Tahoma, sans-serif;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .added__film {
+        flex-direction: column;
+        min-width: auto;
+    }
 }
 </style>

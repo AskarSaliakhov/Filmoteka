@@ -1,6 +1,10 @@
 <template>
     <div class="MainPageOneOfNews">
-        <img :src="dataNews.Poster" :alt="dataNews.title__poster" @click="redirectToOneNews(dataNews)">
+        <img
+            :src="dataNews.Poster"
+            :alt="dataNews.title__poster"
+            @click="redirectToOneNews(dataNews)"
+        >
         <p id="title">{{dataNews.problem__poster}}</p>
     </div>
 </template>

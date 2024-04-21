@@ -11,8 +11,8 @@
                 </router-link>
 
                 <router-link :to="{name:'addedToWatchFilms'}">
-                    <button id="added--films" v-if="IS_REGISTERED && ADDED_TO_WATCH_FILMS.length">Добавленные фильмы:
-                        {{ ADDED_TO_WATCH_FILMS.length }}
+                    <button id="added--films" v-if="IS_REGISTERED && ADDED_TO_WATCH_FILMS.length">
+                        Добавленные фильмы: {{ ADDED_TO_WATCH_FILMS.length }}
                     </button>
                     <button id="added--films" v-else-if="IS_REGISTERED">Добавленные фильмы</button>
                 </router-link>
@@ -35,15 +35,15 @@
             v-if="isModalOpen"
             @mouseleave="closeModal"
             class="modal"
-            :class="{ 'modal-open': isModalOpen, 'modal-closed': !isModalOpen }">
+            :class="{ 'modal-open': isModalOpen, 'modal-closed': !isModalOpen }"
+        >
             <button id="exit--system" @click="exitFromSystem">Выйти</button>
         </header>
-
     </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
     name: "theLinks",
@@ -51,31 +51,30 @@ export default {
         return {
             isModalOpen: false,
             searchValue: ""
-        }
+        };
     },
     methods: {
         ...mapActions(["exit"]),
         exitFromSystem() {
-            this.isModalOpen = false
-            this.exit()
-            this.$router.push('allFilms')
+            this.isModalOpen = false;
+            this.exit();
+            this.$router.push("allFilms");
         },
         openModal() {
             this.isModalOpen = true;
         },
         closeModal() {
             this.isModalOpen = false;
-        },
+        }
     },
     computed: {
         ...mapGetters(["IS_REGISTERED", "ADDED_TO_WATCH_FILMS"])
-    },
-}
+    }
+};
 </script>
 
 <style scoped>
-.Links {
-}
+.Links {}
 
 .hat {
     display: flex;
@@ -88,39 +87,27 @@ export default {
     z-index: 999;
     background-color: #1a171f;
 }
+
 .header__buttons {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 button {
-    width: 180px;
     height: 30px;
     color: white;
     background-color: #1a171f;
     border: none;
     cursor: pointer;
-    margin-left: 50px;
-    padding-top: 2px;
+    margin: 5px;
+    padding: 0 15px;
 }
 
-
-#exit--tittle {
-    color: white;
-}
-
-#exit--system {
-    width: 50px;
-    height: 30px;
-    position: relative;
-    left: 1px;
-    top: 8px
-}
-
-button:hover, #exit--tittle:hover {
+button:hover,
+#exit--tittle:hover {
     color: goldenrod;
 }
-
 
 .modal {
     width: 200px;
@@ -142,15 +129,6 @@ button:hover, #exit--tittle:hover {
     opacity: 0;
 }
 
-@keyframes ani {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 #exit--system {
     width: 100px;
     height: 30px;
@@ -164,9 +142,26 @@ button:hover, #exit--tittle:hover {
 #exit--system:hover {
     color: goldenrod;
 }
-@media (max-width: 1000px) {
-    .hat{
-        justify-content: space-between;
+
+@media (max-width: 768px) {
+    .hat {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .modal {
+        right: 10px;
+        top: 50px;
     }
 }
 </style>

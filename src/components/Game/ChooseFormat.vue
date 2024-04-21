@@ -8,8 +8,7 @@
                     <ul>
                         <li>Прохождение разбито на раунды;</li>
                         <li>Каждый раунд вам на выбор предлагается два случайных варианта;</li>
-                        <li>При выборе одного из вариантов он переходит в следующий раунд, а его противник вылетает;
-                        </li>
+                        <li>При выборе одного из вариантов он переходит в следующий раунд, а его противник вылетает;</li>
                         <li>Таким образом выигравший вариант сразу сталкивается с новым противником;</li>
                         <li>По итогу всех выборов, последний оставшийся на поле вариант выигрывает;</li>
                     </ul>
@@ -21,13 +20,9 @@
                     <p id="title--format"> Турнир: Плей-офф</p>
                     <ul>
                         <li>Каждый раунд вам на выбор предлагается два случайных варианта, участвующих в этапе;</li>
-                        <li> При выборе одного из вариантов он переходит в следующий этап, а его противник вылетает;
-                        </li>
-                        <li>Новый этап начинается, когда все варианты, попавшие в него были рассмотрены и осталась
-                            половина;
-                        </li>
-                        <li>Таким образом каждый этап отсеивает половину вариантов, пока не останется один - победитель;
-                        </li>
+                        <li> При выборе одного из вариантов он переходит в следующий этап, а его противник вылетает;</li>
+                        <li>Новый этап начинается, когда все варианты, попавшие в него были рассмотрены и осталась половина;</li>
+                        <li>Таким образом каждый этап отсеивает половину вариантов, пока не останется один - победитель;</li>
                     </ul>
                     <div class="buttons">
                         <button id="btn--po" @click="redirectToPlayOff">Выбрать "Плей-офф"</button>
@@ -35,20 +30,12 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
-
 export default {
     name: "ChooseFormat",
-    data() {
-        return {
-            thirtyTwo: 32,
-            sixtyFor: 64,
-        }
-    },
     methods: {
         redirectToKing() {
             this.$router.push('/voting/KingOfMountain')
@@ -56,40 +43,53 @@ export default {
         redirectToPlayOff() {
             this.$router.push('/voting/PlayOffs')
         }
-    },
-
+    }
 }
 </script>
 
 <style scoped>
-.ChooseFormat{
+.ChooseFormat {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 100px;
 }
+
 .modals {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .description__king, .description__play__offs {
-    height: 400px;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
     border: 2px solid white;
-    margin-left: 100px;
-    min-width: 300px;
-    max-height: 1000px;
+    border-radius: 10px;
 }
 
 p {
     font-size: 20px;
     text-align: center;
+    color: white;
+    margin-bottom: 10px;
 }
 
-li, #title--format {
-    font-size: 20px;
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    font-size: 18px;
     color: white;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
 }
 
 button {
@@ -99,58 +99,44 @@ button {
     border: none;
     cursor: pointer;
     font-family: cursive;
-    position: relative;
-    bottom: 10px;
-    left: 120px;
     border-radius: 10px;
-}
-
-.buttons {
-    text-align: center;
-    position: relative;
-    right: 130px;
-}
-
-#title {
-    color: gray;
-    font-family: Tahoma, sans-serif;
-    font-size: 30px;
-}
-
-#btn--king {
-    position: relative;
-    top: 15px
-}
-#btn--po{
-    position: relative;
-    top:16px
-}
-button{
     transition: transform 0.5s;
+    margin-top: 10px;
 }
-button:hover{
+
+button:hover {
     transform: scale(1.1);
 }
-@media (max-width: 800px) {
-    .ChooseFormat {
-        position: absolute;
+
+@media (max-width: 768px) {
+    .modals {
+        flex-direction: column;
+        align-items: center;
     }
-    #btn--po{
-        position: relative;
-        top:-7px
+
+    .description__king, .description__play__offs {
+        max-width: 90%;
+    }
+
+    button {
+        width: 150px;
+        font-size: 16px;
     }
 }
-@media (max-width: 1000px) {
-    .description__king, .description__play__offs {
-        height: 500px;
-    }
-}
-@media (max-width: 1200px) {
-    .description__king, .description__play__offs {
-        height: 550px;
-    }
+#btn--po{
+    margin-top: 30px;
 }
 
+@media (max-width: 500px) {
+    .description__king, .description__play__offs {
+        max-width: 90%;
+    }
 
+    button {
+        margin-top: 10px;
+        width: 150px;
+        height: 50px;
+    }
+}
 
 </style>

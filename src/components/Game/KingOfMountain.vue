@@ -2,8 +2,7 @@
     <div class="KingOfMountain">
         <div class="container">
             <div v-if="!isEndGameKing" class="choices">
-                <p id="score">{{ currentCountKing }}/{{ ALL_FILMS.length - 1 }}
-                <p/>
+                <p id="score">{{ currentCountKing }}/{{ ALL_FILMS.length - 1 }}</p>
                 <div class="photos">
                     <div class="first__film">
                         <img :src="firstFilm.Poster" :alt="firstFilm.title" @click="chooseLeftFilm">
@@ -52,7 +51,7 @@ export default {
 img {
     width: 400px;
     height: 450px;
-        transition: transform 0.25s;
+    transition: transform 0.25s;
 }
 
 img:hover {
@@ -80,13 +79,15 @@ img:hover {
     .KingOfMountain {
         position: absolute;
     }
+
+    .photos {
+        flex-direction: column; /* Фотографии располагаются друг под другом */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    img {
+        margin-bottom: 20px; /* Добавляем отступ между фотографиями */
+    }
 }
-
-
-
-
-
-
-
 
 </style>

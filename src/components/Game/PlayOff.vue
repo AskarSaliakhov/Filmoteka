@@ -77,23 +77,35 @@ img:hover {
     display: flex;
 }
 
-#info,#winner--title {
+#info, #winner--title {
     color: white;
     text-align: center;
     font-family: Tahoma, sans-serif;
     font-size: 20px;
 }
-.winner{
+
+.winner {
     text-align: center;
     align-items: center;
     justify-content: center;
 }
-#winner--title{
+
+#winner--title {
     font-family: cursive;
 }
+
 @media (max-width: 768px) {
-    .PlayOffs{
+    .PlayOffs {
         position: absolute;
+    }
+
+    .info__play__off {
+        flex-direction: column; /* Фотографии располагаются друг под другом */
+        align-items: center; /* Выравнивание по центру */
+    }
+
+    img {
+        margin-bottom: 20px; /* Добавляем отступ между фотографиями */
     }
 }
 </style>

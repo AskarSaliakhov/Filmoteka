@@ -158,97 +158,76 @@ export default {
 
 <style scoped>
 .Fees {
-    width: 1000px;
-    height: 600px;
-    min-width: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .data__fees__films {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#title, #country {
+#title,
+#country {
     color: white;
     text-align: center;
 }
 
-.russian__films, .world__films, .usa__canada__films {
-    width: 300px;
-    flex-direction: column;
+.russian__films,
+.world__films,
+.usa__canada__films {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+}
+
+.film {
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+}
+
+#count {
+    color: white;
+    margin-right: 10px;
 }
 
 img {
     width: 60px;
     height: 90px;
+    margin-right: 20px;
 }
 
-.film {
-    margin-top: 50px;
-    border-bottom: 1px solid gray;
-    display: flex;
-}
-
-#count {
-    color: white;
+.title__film__money {
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 #title__film {
     color: gray;
-}
-
-#money__film {
-    color: white;
-}
-
-.world__films, .russian__films {
-    margin-right: 50px;
-}
-
-#title__film, #money__film {
-    padding-left: 20px;
-}
-
-#title__film {
-
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    margin-bottom: 5px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-@media (max-width: 1200px) {
+#money__film {
+    color: white;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
     .film {
-        min-height: 140px;
+        padding: 10px 0;
+        flex-wrap: wrap; /* добавляем перенос строки для мобильных устройств */
     }
-}
 
-@media (max-width: 1600px) {
-    .film {
-        min-height: 140px;
+    .film img {
+        margin-bottom: 10px; /* увеличиваем расстояние между изображением и текстом */
     }
-}
-
-@media (max-width: 300px) {
-    .film {
-        min-height: 140px;
-    }
-}
-
-@media (min-width: 1600px) {
-    .film {
-        min-height: 140px;
-    }
-}
-
-#count {
-    margin-right: 10px;
-}
-
-img {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 </style>

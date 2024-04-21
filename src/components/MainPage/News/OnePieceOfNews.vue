@@ -2,13 +2,23 @@
     <div class="OnePieceOfNews">
         <div class="container">
             <p id="title">{{ONE_PIECE_NEWS.title}}</p>
-            <img :src="ONE_PIECE_NEWS.Poster" :width="ONE_PIECE_NEWS.widthFirst" :alt="ONE_PIECE_NEWS.title__poster">
+            <img
+                :src="ONE_PIECE_NEWS.Poster"
+                :width="ONE_PIECE_NEWS.widthFirst"
+                :alt="ONE_PIECE_NEWS.title__poster"
+            >
             <p id="about">О чем?</p>
             <p id="description--one">{{ONE_PIECE_NEWS.descriptionOne}}</p>
-            <img :src="ONE_PIECE_NEWS.firstPicture" :alt="ONE_PIECE_NEWS.title__poster">
+            <img
+                :src="ONE_PIECE_NEWS.firstPicture"
+                :alt="ONE_PIECE_NEWS.title__poster"
+            >
             <p> {{ONE_PIECE_NEWS.about}}</p>
             <p id="description--two">Что теперь...?</p>
-            <img :src="ONE_PIECE_NEWS.secondPicture" :alt="ONE_PIECE_NEWS.title__poster">
+            <img
+                :src="ONE_PIECE_NEWS.secondPicture"
+                :alt="ONE_PIECE_NEWS.title__poster"
+            >
             <p>{{ONE_PIECE_NEWS.descriptionTwo}}</p>
             <video-embed
                 :src="ONE_PIECE_NEWS.trailer">

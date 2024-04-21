@@ -21,9 +21,23 @@
         </div>
         <div class="info__film">
             <div class="poster__film">
-                <img id="poster" :src="ONE_FILM.Poster" :alt="ONE_FILM.title">
-                <button id="btn--add" @click="addToWatch"> Добавить в "Посмотреть"</button>
-                <button id="btn--point" @click="addPoint">Поставить оценку фильму</button>
+                <img
+                    id="poster"
+                    :src="ONE_FILM.Poster"
+                    :alt="ONE_FILM.title"
+                >
+                <button
+                    id="btn--add"
+                    @click="addToWatch"
+                >
+                    Добавить в "Посмотреть"
+                </button>
+                <button
+                    id="btn--point"
+                    @click="addPoint"
+                >
+                    Поставить оценку фильму
+                </button>
             </div>
             <div class="about__film">
                 <p id="title--film">{{ ONE_FILM.title }}</p>

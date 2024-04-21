@@ -5,7 +5,7 @@
             <div class="data__added__film">
                 <div class="div__flex">
                     <p id="data__film__static484747">Название:</p>
-                    <p id="data__film" class="info__title">{{dataAddedToWatchFilm.title }}</p>
+                    <p id="data__film" class="info__title">{{ dataAddedToWatchFilm.title }}</p>
                 </div>
                 <div class="div__flex">
                     <p id="data__film__static484747">Время:</p>
@@ -19,7 +19,12 @@
                     <p id="data__film__static484747">Оценка зрителей:</p>
                     <p id="data__film" class="info__point">{{ dataAddedToWatchFilm.point }}</p>
                 </div>
-                <button id="btn--delete--film" @click="deleteAddedFilmWatch">Удалить</button>
+                <button
+                    id="btn--delete--film"
+                    @click="deleteAddedFilmWatch"
+                >
+                    Удалить
+                </button>
             </div>
         </div>
     </div>

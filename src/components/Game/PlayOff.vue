@@ -4,11 +4,19 @@
             <p id="score">{{ currentCount + 1 }}/{{ countCoupleFilms }}</p>
             <div class="info__play__off">
                 <div class="first__film">
-                    <img :src="firstFilm.Poster" @click="chooseLeftFilm">
+                    <img
+                        @click="chooseLeftFilm"
+                        :src="firstFilm.Poster"
+                        :alt="firstFilm.title"
+                    >
                     <p id="info">{{ firstFilm.title }}</p>
                 </div>
                 <div class="second__film">
-                    <img :src="secondFilm.Poster" @click="chooseRightFilm">
+                    <img
+                        @click="chooseRightFilm"
+                        :src="secondFilm.Poster"
+                        :alt="firstFilm.title"
+                    >
                     <p id="info">{{ secondFilm.title }}</p>
                 </div>
             </div>
@@ -100,12 +108,12 @@ img:hover {
     }
 
     .info__play__off {
-        flex-direction: column; /* Фотографии располагаются друг под другом */
-        align-items: center; /* Выравнивание по центру */
+        flex-direction: column;
+        align-items: center;
     }
 
     img {
-        margin-bottom: 20px; /* Добавляем отступ между фотографиями */
+        margin-bottom: 20px;
     }
 }
 </style>

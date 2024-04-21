@@ -1,8 +1,14 @@
 <template>
     <div class="AddedWatchAllFilms">
-        <p id="title" v-if="ADDED_TO_WATCH_FILMS.length">Фильмы, которые вы собираетесь посмотреть: {{ADDED_TO_WATCH_FILMS.length}}</p>
+        <p v-if="ADDED_TO_WATCH_FILMS.length" id="title">Фильмы, которые вы собираетесь посмотреть: {{ ADDED_TO_WATCH_FILMS.length }}</p>
         <p v-else id="title">Добавьте фильмы, которые хотите посмотреть</p>
-        <button @click="deleteAllFilms" id="btn--delete--all" v-if="ADDED_TO_WATCH_FILMS.length">Удалить все</button>
+        <button
+            id="btn--delete--all"
+            v-if="ADDED_TO_WATCH_FILMS.length"
+            @click="deleteAllFilms"
+        >
+            Удалить все
+        </button>
         <AddedWatchOneFilm
             v-for="(film,index) in ADDED_TO_WATCH_FILMS"
             :key="film.id"
@@ -19,12 +25,12 @@ import AddedWatchOneFilm from "@/components/AddedFilmsWatch/AddedWatchOneFilm";
 export default {
     name: "AddedWatchAllFilms",
     components: {AddedWatchOneFilm},
-    methods:{
+    methods: {
         deleteFilm(index) {
-            this.ADDED_TO_WATCH_FILMS.splice(index,1)
+            this.ADDED_TO_WATCH_FILMS.splice(index, 1)
         },
         deleteAllFilms() {
-            this.ADDED_TO_WATCH_FILMS.splice(0,this.ADDED_TO_WATCH_FILMS.length)
+            this.ADDED_TO_WATCH_FILMS.splice(0, this.ADDED_TO_WATCH_FILMS.length)
         }
     },
     computed: {
@@ -34,14 +40,14 @@ export default {
 </script>
 
 <style scoped>
-#title{
+#title {
     color: gray;
     text-align: center;
     font-size: 20px;
     font-family: Verdana, sans-serif;
 }
 
-#btn--delete--all{
+#btn--delete--all {
     width: 100px;
     background-color: #0f1015;
     border: none;
@@ -50,7 +56,7 @@ export default {
     margin: 10px auto;
 }
 
-#btn--delete--all:hover{
+#btn--delete--all:hover {
     color: goldenrod;
     transform: scale(1.1);
 }

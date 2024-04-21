@@ -5,18 +5,29 @@
                 <p id="score">{{ currentCountKing }}/{{ ALL_FILMS.length - 1 }}</p>
                 <div class="photos">
                     <div class="first__film">
-                        <img :src="firstFilm.Poster" :alt="firstFilm.title" @click="chooseLeftFilm">
+                        <img
+                            @click="chooseLeftFilm"
+                            :src="firstFilm.Poster"
+                            :alt="firstFilm.title"
+                        >
                         <p id="title--film">{{ firstFilm.title }}</p>
                     </div>
                     <div class="second__film">
-                        <img :src="secondFilm.Poster" :alt="secondFilm.title" @click="chooseRightFilm">
+                        <img
+                            @click="chooseRightFilm"
+                            :src="secondFilm.Poster"
+                            :alt="secondFilm.title"
+                        >
                         <p id="title--film">{{ secondFilm.title }}</p>
                     </div>
                 </div>
             </div>
             <div v-else class="winner">
                 <p id="winner--title">Победитель</p>
-                <img :src="firstFilm.Poster" :alt="firstFilm.title">
+                <img
+                    :src="firstFilm.Poster"
+                    :alt="firstFilm.title"
+                >
             </div>
         </div>
     </div>
@@ -81,12 +92,12 @@ img:hover {
     }
 
     .photos {
-        flex-direction: column; /* Фотографии располагаются друг под другом */
-        align-items: center; /* Выравнивание по центру */
+        flex-direction: column;
+        align-items: center;
     }
 
     img {
-        margin-bottom: 20px; /* Добавляем отступ между фотографиями */
+        margin-bottom: 20px;
     }
 }
 

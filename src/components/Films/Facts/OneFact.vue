@@ -33,9 +33,9 @@ export default {
 
 @media (max-width: 768px) {
     .fact {
-        height: auto; /* Автоматическая высота для мобильных устройств */
-        padding: 10px; /* Добавим немного отступа внутри блока */
-        font-size: 14px; /* Уменьшим размер шрифта для мобильных устройств */
+        height: auto;
+        padding: 10px;
+        font-size: 14px
     }
 }
 </style>

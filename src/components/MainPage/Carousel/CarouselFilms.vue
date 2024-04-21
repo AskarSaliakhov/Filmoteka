@@ -8,7 +8,11 @@
             :direction="direction"
         >
             <button  @click="previousPhoto">
-                <img id="back--png" src="../../../assets/back.png" alt="назад">
+                <img
+                    id="back--png"
+                    src="../../../assets/back.png"
+                    alt="назад"
+                >
             </button>
             <img
                 id="poster--film"

@@ -3,7 +3,12 @@
         <div v-if="isPopupOpen" class="incorrect__data__wrapper" ref="wrapperData">
             <div class="incorrect__data">
                 <p id="tittle--wrong">Проверьте,что данные верны</p>
-                <img id="close--btn" src="../../assets/close.png" @click="closePopup" alt="закрыть окно">
+                <img
+                    @click="closePopup"
+                    id="close--btn"
+                    src="../../assets/close.png"
+                    alt="закрыть окно"
+                >
                 <ul>
                     <li class="incorrect__message">Проверьте,что номер телефона из 11 цифр.</li>
                     <li class="incorrect__message">Проверьте,что длина длина пароля больше 5 символов.</li>
@@ -18,10 +23,20 @@
             <div class="title">Добро пожаловать!</div>
             <div class="subtitle">Создайте аккаунт</div>
             <div class="input-container ic1">
-                <input id="firstname" class="input" v-mask="['# (###) ###-##-##']" placeholder=""
-                       v-model="phoneNumber"/>
+                <input
+                    id="firstname"
+                    class="input"
+                    v-mask="['# (###) ###-##-##']"
+                    placeholder=""
+                    v-model="phoneNumber"
+                />
                 <div class="cut"></div>
-                <label for="firstname" class="placeholder">Номер телефона</label>
+                <label
+                    for="firstname"
+                    class="placeholder"
+                >
+                    Номер телефона
+                </label>
             </div>
             <div class="input-container ic2">
                 <input id="lastname" class="input" onkeypress="return (event.charCode >= 65 && event.charCode
@@ -39,9 +54,21 @@
                 <div class="cut cut-short"></div>
                 <label for="email" class="placeholder">Повторите пароль</label>
             </div>
-            <button type="submit" class="submit" @click="clearDataInForm">Очистить форму</button>
-            <button type="submit" class="submit" :class="{btn__disabled:isAlreadyLogIn}" @click="handleRegistrated"
-                    :disabled="isAlreadyLogIn">Зарегистрироваться
+            <button
+                type="submit"
+                class="submit"
+                @click="clearDataInForm"
+            >
+                Очистить форму
+            </button>
+            <button
+                @click="handleRegistrated"
+                type="submit"
+                class="submit"
+                :class="{btn__disabled:isAlreadyLogIn}"
+                :disabled="isAlreadyLogIn"
+            >
+                Зарегистрироваться
             </button>
         </div>
     </div>

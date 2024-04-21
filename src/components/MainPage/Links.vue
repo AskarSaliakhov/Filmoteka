@@ -11,22 +11,39 @@
                 </router-link>
 
                 <router-link :to="{name:'addedToWatchFilms'}">
-                    <button id="added--films" v-if="IS_REGISTERED && ADDED_TO_WATCH_FILMS.length">
+                    <button
+                        id="added--films"
+                        v-if="IS_REGISTERED && ADDED_TO_WATCH_FILMS.length"
+                    >
                         Добавленные фильмы: {{ ADDED_TO_WATCH_FILMS.length }}
                     </button>
-                    <button id="added--films" v-else-if="IS_REGISTERED">Добавленные фильмы</button>
+                    <button
+                        id="added--films"
+                        v-else-if="IS_REGISTERED"
+                    >
+                        Добавленные фильмы
+                    </button>
                 </router-link>
 
                 <router-link :to="{name:'chooseFormat'}">
                     <button id="play--game">Сыграть в игру</button>
                 </router-link>
 
-                <div v-if="IS_REGISTERED" id="exit--tittle" @click="openModal">
+                <div
+                    v-if="IS_REGISTERED"
+                    id="exit--tittle"
+                    @click="openModal"
+                >
                     <button>Выйти из аккаунта</button>
                 </div>
 
                 <router-link :to="{name:'registration'}">
-                    <button id="registration" v-if="!IS_REGISTERED">Регистрация</button>
+                    <button
+                        id="registration"
+                        v-if="!IS_REGISTERED"
+                    >
+                        Регистрация
+                    </button>
                 </router-link>
             </div>
         </header>
@@ -43,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     name: "theLinks",
@@ -74,7 +91,8 @@ export default {
 </script>
 
 <style scoped>
-.Links {}
+.Links {
+}
 
 .hat {
     display: flex;

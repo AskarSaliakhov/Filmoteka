@@ -1,13 +1,18 @@
 <template>
     <div class="Genders">
         <ul>
-            <li @click="handleAllGenres" :class="{active:isAllGenres}">ВСЕ ЖАНРЫ</li>
+            <li
+                @click="handleAllGenres"
+                :class="{active:isAllGenres}"
+            >
+                ВСЕ ЖАНРЫ
+            </li>
             <li v-for="film in genres"
                 :key="film.id"
                 :class="{'active':film.id===selectedFilm}"
                 @click="selectGenre(film)"
             >
-               {{ film.genre }}
+                {{ film.genre }}
             </li>
         </ul>
     </div>
@@ -37,18 +42,18 @@ export default {
                 {id: 17, genre: "Фэнтези"},
             ],
             selectedFilm: null,
-            isAllGenres:true
+            isAllGenres: true
         }
     },
     methods: {
         selectGenre(film) {
-            this.selectedFilm=film.id
-            this.isAllGenres=false
+            this.selectedFilm = film.id
+            this.isAllGenres = false
             this.$emit('takeGenre', film.genre)
         },
         handleAllGenres() {
-            this.isAllGenres=true
-            this.selectedFilm=null
+            this.isAllGenres = true
+            this.selectedFilm = null
             this.$emit("allGenres")
         }
     }
@@ -71,10 +76,12 @@ li {
     padding-top: 10px;
     cursor: pointer;
 }
+
 li:hover {
     color: goldenrod;
 }
-.active{
+
+.active {
     color: white;
     transition: all ease 1.0s;
     transform: scale(1.1)

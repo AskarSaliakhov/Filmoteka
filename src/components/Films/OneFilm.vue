@@ -1,6 +1,13 @@
 <template>
-    <div class="OneFilm" @click="redirectToFilm(filmData.id)">
-        <img :src="filmData.Poster" :alt="filmData.title" @click="redirectToFilm(filmData.id)">
+    <div
+        class="OneFilm"
+        @click="redirectToFilm(filmData.id)"
+    >
+        <img
+            :src="filmData.Poster"
+            :alt="filmData.title"
+            @click="redirectToFilm(filmData.id)"
+        >
         <div class="data__film">
             <p id="title__film">{{ filmData.title }}</p>
             <p id="title__country">Страны: {{ filmData.country }}</p>
